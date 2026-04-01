@@ -1,46 +1,45 @@
-# Astro Starter Kit: Basics
+# matoanselmo — personal site
 
-```sh
-npm create astro@latest -- --template basics
+Personal portfolio site for Mateus Anselmo. Minimal, static, bilingual (EN/PT).
+
+Built with [Astro](https://astro.build), deployed via Docker + Nginx.
+
+## Project structure
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
 ├── public/
+│   ├── favicon.ico
 │   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   └── hero.astro       # reusable hero card component
+│   ├── layouts/
+│   │   └── Layout.astro     # root layout with global styles + fonts
+│   └── pages/
+│       ├── index.astro      # English homepage (/)
+│       └── pt.astro         # Portuguese homepage (/pt)
+├── Dockerfile
+├── docker-compose.yml
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Commands
 
-## 🧞 Commands
+| Command           | Action                                      |
+| :---------------- | :------------------------------------------ |
+| `npm install`     | Install dependencies                        |
+| `npm run dev`     | Start dev server at `localhost:4321`        |
+| `npm run build`   | Build production site to `./dist/`          |
+| `npm run preview` | Preview the build locally before deploying  |
 
-All commands are run from the root of the project, from a terminal:
+## Docker
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Build and run with Docker Compose:
 
-## 👀 Want to learn more?
+```sh
+docker compose up --build
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Serves the static build on port 80 via Nginx Alpine.
