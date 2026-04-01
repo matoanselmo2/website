@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroCard from "../components/hero.astro";
+---
+
+<Layout title="matoanselmo">
+  <HeroCard
+    label="// olá mundo"
+    name="matoanselmo"
+    role={`estudante & desenvolvedor <span style="margin: 0 8px; opacity: 0.4">·</span> entusiasta de tecnologia :)`}
+    bio={`Um brasileiro no canadá que gosta de explorar o mundo da tecnologia.<br>"Um jovem bonito e inteligente!" - minha namorada`}
+    facts={[
+      { label: "stack", value: "astro, java" },
+      { label: "foco", value: "escola (por enquanto)" },
+    ]}
+    links={[
+      { text: "github", href: "https://github.com/matoanselmo2" },
+      { text: "email", href: "mailto:mateusanselmoguarino@gmail.com" },
+    ]}
+    footer={`feito com astro · ruggy ${new Date().getFullYear()}`}
+    langSwitch={{ text: "🌐", href: "/" }}
+  />
+</Layout>

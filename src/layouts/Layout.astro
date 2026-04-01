@@ -1,0 +1,75 @@
+---
+interface Props {
+    title: string;
+}
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="matoanselmo · 👋" />
+        <meta property="og:description" content="A brazilian guy in canada that likes exploring the tech world." />
+        <title>{title}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
+
+<style is:global>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    :root {
+        --bg: #0b0b0f;
+        --surface: #13131a;
+        --border: #1e1e2a;
+        --text: #e8e6f0;
+        --muted: #6b6880;
+        --accent: #c8b8ff;
+        --accent-dim: #7c6aaa;
+        --serif: "Instrument Serif", Georgia, serif;
+        --mono: "DM Mono", monospace;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--mono);
+        font-size: 14px;
+        line-height: 1.7;
+        min-height: 100vh;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    ::selection {
+        background: var(--accent-dim);
+        color: #fff;
+    }
+</style>
